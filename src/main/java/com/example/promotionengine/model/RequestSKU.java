@@ -1,4 +1,4 @@
-package com.example.promotionengine.bean;
+package com.example.promotionengine.model;
 
 public class RequestSKU {
 
