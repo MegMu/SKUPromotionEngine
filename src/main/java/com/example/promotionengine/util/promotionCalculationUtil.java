@@ -1,7 +1,10 @@
 package com.example.promotionengine.util;
 
+import org.springframework.stereotype.Component;
+
 import com.example.promotionengine.constant.EngineConstants;
 
+@Component
 public class promotionCalculationUtil {
 
 	public Integer totalPriceofA(Integer SKUA) {
@@ -70,13 +73,19 @@ public class promotionCalculationUtil {
 	}
 
 	public Integer totalPriceofCD(Integer SKUC, Integer SKUD) {
-		
-		Integer totalSKUCDPrice = 0;           
-		
+
+		Integer totalSKUCDPrice = 0;
+
 		totalSKUCDPrice = (SKUC == SKUD) ? SKUC * EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE : totalSKUCDPrice;
-		totalSKUCDPrice = (SKUC > SKUD) ? ((SKUC - SKUD)*EngineConstants.SKUC_SINGLE_PRICE + SKUD*EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE) : totalSKUCDPrice;
-		totalSKUCDPrice = (SKUD > SKUC) ? ((SKUD - SKUC)*EngineConstants.SKUD_SINGLE_PRICE + SKUC*EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE) : totalSKUCDPrice;
-		
+		totalSKUCDPrice = (SKUC > SKUD)
+				? ((SKUC - SKUD) * EngineConstants.SKUC_SINGLE_PRICE
+						+ SKUD * EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE)
+				: totalSKUCDPrice;
+		totalSKUCDPrice = (SKUD > SKUC)
+				? ((SKUD - SKUC) * EngineConstants.SKUD_SINGLE_PRICE
+						+ SKUC * EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE)
+				: totalSKUCDPrice;
+
 		return totalSKUCDPrice;
 
 	}

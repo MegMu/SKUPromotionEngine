@@ -1,5 +1,8 @@
 package com.example.promotionengine.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class TotalResponse {
 	
 	private Integer totalPrice;
