@@ -28,23 +28,56 @@ public class promotionCalculationUtil {
 
 	}
 
-	public Integer totalPriceofB() {
-		return null;
+	public Integer totalPriceofB(Integer SKUB) {
+
+		Integer totalSKUBPrice = 0;
+
+		if (SKUB >= 3) {
+
+			Integer NumOfPromo = SKUB / 3;
+			Integer NumOfSingle = SKUB % 3;
+
+			totalSKUBPrice = (NumOfPromo > 0) ? NumOfPromo * EngineConstants.SKUB_PROMO_PRICE_FOR2 : totalSKUBPrice;
+
+			totalSKUBPrice = (NumOfSingle > 0) ? NumOfSingle * EngineConstants.SKUB_SINGLE_PRICE : totalSKUBPrice;
+
+			return totalSKUBPrice;
+
+		} else {
+
+			totalSKUBPrice = SKUB * EngineConstants.SKUB_SINGLE_PRICE;
+			return totalSKUBPrice;
+
+		}
 
 	}
 
-	public Integer totalPriceofC() {
-		return null;
+	public Integer totalPriceofC(Integer SKUC) {
+
+		Integer totalSKUCPrice = 0;
+
+		totalSKUCPrice = SKUC * EngineConstants.SKUC_SINGLE_PRICE;
+		return totalSKUCPrice;
 
 	}
 
-	public Integer totalPriceofD() {
-		return null;
+	public Integer totalPriceofD(Integer SKUD) {
+		Integer totalSKUDPrice = 0;
+
+		totalSKUDPrice = SKUD * EngineConstants.SKUD_SINGLE_PRICE;
+		return totalSKUDPrice;
 
 	}
 
-	public Integer totalPriceofCD() {
-		return null;
+	public Integer totalPriceofCD(Integer SKUC, Integer SKUD) {
+		
+		Integer totalSKUCDPrice = 0;           
+		
+		totalSKUCDPrice = (SKUC == SKUD) ? SKUC * EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE : totalSKUCDPrice;
+		totalSKUCDPrice = (SKUC > SKUD) ? ((SKUC - SKUD)*EngineConstants.SKUC_SINGLE_PRICE + SKUD*EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE) : totalSKUCDPrice;
+		totalSKUCDPrice = (SKUD > SKUC) ? ((SKUD - SKUC)*EngineConstants.SKUD_SINGLE_PRICE + SKUC*EngineConstants.SKUC_WITH_SKUD_PROMO_PRICE) : totalSKUCDPrice;
+		
+		return totalSKUCDPrice;
 
 	}
 
