@@ -6,16 +6,19 @@ import java.net.URI;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.promotionengine.model.RequestSKU;
 import com.example.promotionengine.model.TotalResponse;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class PromotionEngineApplicationTests {
   
@@ -37,7 +40,7 @@ public class PromotionEngineApplicationTests {
             .toUri();
      
     ResponseEntity<TotalResponse> message = this.restTemplate.postForEntity(targetUrl,req, TotalResponse.class);
-    assertThat(message.getBody().getTotalPrice()).isEqualTo(100);
+    assertThat(message.getBody().getTotalPrice()).isEqualTo(110);
    }
 
 }
