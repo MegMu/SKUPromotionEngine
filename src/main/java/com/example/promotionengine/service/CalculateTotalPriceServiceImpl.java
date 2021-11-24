@@ -21,9 +21,9 @@ public class CalculateTotalPriceServiceImpl implements CalculateTotalPriceServic
 		
 		Integer totalPrice = 0;
 		
-		totalPrice = calculate.totalPriceofA(requestSKU.getSKUA());
-		totalPrice = totalPrice + calculate.totalPriceofB(requestSKU.getSKUB());
-		if(requestSKU.getSKUC()>0 && requestSKU.getSKUD()>0) {
+		totalPrice = (requestSKU.getSKUA()!=null) ? calculate.totalPriceofA(requestSKU.getSKUA()) : totalPrice;
+		totalPrice = (requestSKU.getSKUB()!=null) ? totalPrice + calculate.totalPriceofB(requestSKU.getSKUB()) : totalPrice                ;
+		if((requestSKU.getSKUC()!=null && requestSKU.getSKUC()>0) && (requestSKU.getSKUD()!=null && requestSKU.getSKUD()>0)) {
 			totalPrice = totalPrice + calculate.totalPriceofCD(requestSKU.getSKUC(), requestSKU.getSKUD());
 		}else if(requestSKU.getSKUC() != null) {
 			totalPrice = totalPrice + calculate.totalPriceofC(requestSKU.getSKUC());

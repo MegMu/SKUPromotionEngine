@@ -1,10 +1,16 @@
 package com.example.promotionengine.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class RequestSKU {
 
+	@JsonProperty("SKUA")
 	private Integer SKUA;
+	@JsonProperty("SKUB")
 	private Integer SKUB;
+	@JsonProperty("SKUC")
 	private Integer SKUC;
+	@JsonProperty("SKUD")
 	private Integer SKUD;
 
 	public Integer getSKUA() {

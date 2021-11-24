@@ -26,6 +26,12 @@ public class promotionEngineController {
 	
 	@PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public TotalResponse CalculateTotalPrice(@RequestBody RequestSKU requestSKU) {
+		
+		System.out.println(requestSKU);
+		System.out.println(requestSKU.getSKUA());
+		System.out.println(requestSKU.getSKUB());
+		System.out.println(requestSKU.getSKUC());
+		System.out.println(requestSKU.getSKUD());
 
 		return ctpService.CalculateTotalPrice(requestSKU);
 
