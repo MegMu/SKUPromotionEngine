@@ -18,7 +18,7 @@ public class promotionCalculationUtil {
 
 			totalSKUAPrice = (NumOfPromo > 0) ? NumOfPromo * EngineConstants.SKUA_PROMO_PRICE_FOR3 : totalSKUAPrice;
 
-			totalSKUAPrice = (NumOfSingle > 0) ? NumOfSingle * EngineConstants.SKUA_SINGLE_PRICE : totalSKUAPrice;
+			totalSKUAPrice = (NumOfSingle > 0) ? totalSKUAPrice + (NumOfSingle * EngineConstants.SKUA_SINGLE_PRICE) : totalSKUAPrice;
 
 			return totalSKUAPrice;
 
@@ -35,14 +35,14 @@ public class promotionCalculationUtil {
 
 		Integer totalSKUBPrice = 0;
 
-		if (SKUB >= 3) {
+		if (SKUB >= 2) {
 
-			Integer NumOfPromo = SKUB / 3;
-			Integer NumOfSingle = SKUB % 3;
+			Integer NumOfPromo = SKUB / 2;
+			Integer NumOfSingle = SKUB % 2;
 
 			totalSKUBPrice = (NumOfPromo > 0) ? NumOfPromo * EngineConstants.SKUB_PROMO_PRICE_FOR2 : totalSKUBPrice;
 
-			totalSKUBPrice = (NumOfSingle > 0) ? NumOfSingle * EngineConstants.SKUB_SINGLE_PRICE : totalSKUBPrice;
+			totalSKUBPrice = (NumOfSingle > 0) ? totalSKUBPrice + (NumOfSingle * EngineConstants.SKUB_SINGLE_PRICE) : totalSKUBPrice;
 
 			return totalSKUBPrice;
 
